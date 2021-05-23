@@ -197,7 +197,7 @@ class MarketApi {
     static requestJSON(url, gotOptions = null) {
         gotOptions = gotOptions ? merge.clone(gotOptions) : {};
         gotOptions.responseType = 'json';
-
+        console.log({url})
         return got(url, gotOptions).then(response => {
             let body = response.body;
 
