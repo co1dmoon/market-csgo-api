@@ -1612,7 +1612,7 @@ class MarketApi {
         let params = {
             item_id: itemId,
             price: price,
-            currency: currency,
+            cur: currency,
         };
 
         return this.callV2MethodWithKey('add-to-sale', gotOptions, params);
