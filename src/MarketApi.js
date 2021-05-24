@@ -1610,7 +1610,7 @@ class MarketApi {
      */
     sellV2AddItem(itemId, price, currency, gotOptions = null) {
         let params = {
-            item_id: itemId,
+            id: itemId,
             price: price,
             cur: currency,
         };
