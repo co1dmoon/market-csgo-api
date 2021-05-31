@@ -432,6 +432,7 @@ class MarketApi {
         let optionsClone = this.makeGotOptions(gotOptions);
 
         let preparedOptions = merge.recursive(optionsClone, {
+            form: true,
             body: postData,
         });
 
