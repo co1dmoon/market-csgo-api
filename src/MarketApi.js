@@ -1045,9 +1045,12 @@ class MarketApi {
      * @return {Promise}
      */
     sellMassUpdatePriceById(prices, gotOptions = null) {
-    
+        let list = {};
+        for(let ui_id in prices) {
+            list[ui_id] = Number(prices[ui_id]);
+        }
 
-        return this.callPostMethodWithKey('MassSetPriceById', prices, gotOptions);
+        return this.callPostMethodWithKey('MassSetPriceById', list, gotOptions);
     }
 
     /**
