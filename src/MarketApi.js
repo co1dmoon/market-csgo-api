@@ -433,7 +433,7 @@ class MarketApi {
 
         let preparedOptions = merge.recursive(optionsClone, {
            
-            json: postData,
+            form: postData,
         });
 
         return this.callMethodWithKey(method, preparedOptions, params);
