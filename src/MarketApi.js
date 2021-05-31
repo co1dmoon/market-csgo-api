@@ -429,6 +429,7 @@ class MarketApi {
      * @returns {Promise}
      */
     callPostMethodWithKey(method, postData = {}, gotOptions = null, params = null) {
+        console.log({postData})
         let optionsClone = this.makeGotOptions(gotOptions);
 
         let preparedOptions = merge.recursive(optionsClone, {
