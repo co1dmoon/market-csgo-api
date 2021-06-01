@@ -197,7 +197,7 @@ class MarketApi {
     static requestJSON(url, gotOptions = null) {
         gotOptions = gotOptions ? merge.clone(gotOptions) : {};
         gotOptions.responseType = 'json';
-        console.log({url})
+//         console.log({url})
         return got(url, gotOptions).then(response => {
             let body = response.body;
 
@@ -429,7 +429,7 @@ class MarketApi {
      * @returns {Promise}
      */
     callPostMethodWithKey(method, postData = {}, gotOptions = null, params = null) {
-        console.log({postData})
+//         console.log({postData})
         let optionsClone = this.makeGotOptions(gotOptions);
 
         let preparedOptions = merge.recursive(optionsClone, {
