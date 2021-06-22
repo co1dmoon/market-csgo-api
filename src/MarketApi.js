@@ -186,7 +186,7 @@ class MarketApi {
         return this.options.baseUrl + this.options.apiPath;
     }
 
-    /**
+    /**Ikfeo3ff4Hd
      * JSON request
      *
      * @param {String} url
@@ -197,7 +197,7 @@ class MarketApi {
     static requestJSON(url, gotOptions = null) {
         gotOptions = gotOptions ? merge.clone(gotOptions) : {};
         gotOptions.responseType = 'json';
-//         console.log({url})
+console.log({url})
         return got(url, gotOptions).then(response => {
             let body = response.body;
 
