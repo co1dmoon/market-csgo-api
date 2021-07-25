@@ -157,6 +157,7 @@ class MarketApi {
             apiPath: 'api',
             useLimiter: true,
             extendedError: false,
+            debug: false,
             limiterOptions: {
                 maxConcurrent: 1, // 1 request at time
                 minTime: 200,  // Max 5 requests per seconds
@@ -197,7 +198,11 @@ class MarketApi {
     static requestJSON(url, gotOptions = null) {
         gotOptions = gotOptions ? merge.clone(gotOptions) : {};
         gotOptions.responseType = 'json';
-console.log({url})
+
+        if (this.options.debug) {
+            console.log(`request url ${url}`);
+        }
+
         return got(url, gotOptions).then(response => {
             let body = response.body;
 
@@ -348,7 +353,6 @@ console.log({url})
      */
     callV2MethodWithKey(method, gotOptions = null, params = null) {
         let url = this.formatMethodWithKey(MarketApi.VERSIONS.V2, method, params);
-console.log({url})
         return this.callApiUrl(url, gotOptions);
     }
 
@@ -406,7 +410,6 @@ console.log({url})
      */
     callApiUrl(url, gotOptions = null) {
         let optionsClone = this.makeGotOptions(gotOptions);
-console.log({url})
         return this.limitRequest(() => {
             return this.requestJsonHook(url, optionsClone).catch((error) => {
                 if(!this.options.extendedError) {
@@ -429,7 +432,6 @@ console.log({url})
      * @returns {Promise}
      */
     callPostMethodWithKey(method, postData = {}, gotOptions = null, params = null) {
-        console.log({postData})
         let optionsClone = this.makeGotOptions(gotOptions);
 
         let preparedOptions = merge.recursive(optionsClone, {
