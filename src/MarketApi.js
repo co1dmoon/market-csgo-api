@@ -406,7 +406,7 @@ console.log({url})
      */
     callApiUrl(url, gotOptions = null) {
         let optionsClone = this.makeGotOptions(gotOptions);
-
+console.log({url})
         return this.limitRequest(() => {
             return this.requestJsonHook(url, optionsClone).catch((error) => {
                 if(!this.options.extendedError) {
