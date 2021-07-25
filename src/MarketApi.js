@@ -199,10 +199,6 @@ class MarketApi {
         gotOptions = gotOptions ? merge.clone(gotOptions) : {};
         gotOptions.responseType = 'json';
 
-        if (this.options.debug) {
-            console.log(`request url ${url}`);
-        }
-
         return got(url, gotOptions).then(response => {
             let body = response.body;
 
@@ -387,6 +383,10 @@ class MarketApi {
      */
     requestJsonHook(url, gotOptions = null) {
         let self = this.constructor;
+
+        if (this.options.debug) {
+            console.log(`request url ${url}`);
+        }
 
         return self.requestJSON(url, gotOptions);
     }
