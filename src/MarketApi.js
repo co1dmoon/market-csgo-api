@@ -348,7 +348,7 @@ console.log({url})
      */
     callV2MethodWithKey(method, gotOptions = null, params = null) {
         let url = this.formatMethodWithKey(MarketApi.VERSIONS.V2, method, params);
-
+console.log({url})
         return this.callApiUrl(url, gotOptions);
     }
 
@@ -429,7 +429,7 @@ console.log({url})
      * @returns {Promise}
      */
     callPostMethodWithKey(method, postData = {}, gotOptions = null, params = null) {
-//         console.log({postData})
+        console.log({postData})
         let optionsClone = this.makeGotOptions(gotOptions);
 
         let preparedOptions = merge.recursive(optionsClone, {
